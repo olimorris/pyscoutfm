@@ -45,7 +45,10 @@
         },
         "cd": {
             "positions": [
-                "D "
+                "D (C)",
+                "D (LC)",
+                "D (RC)",
+                "D (RLC)"
             ],
             "ratings": {
                 "Cor": 5,
