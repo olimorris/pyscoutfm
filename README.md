@@ -1,12 +1,15 @@
 # PyScoutFM
 
-## Getting Started
+Welcome to PyScoutFM. Your customisable Python scout for the Football Manager series.
 
-- Clone this repository
-- Ensure that [Jupyter Notebook](https://jupyter.org/install) is installed
-- Navigate to the repository and run `jupyter notebook`
-- Select `PyScoutFM.ipynb` from the newly opened browser window
-- Follow the instructions in the notebook
+## Features
+
+- Score players based on specific ratings to decide who to sign
+- Customise the
+
+## Installation
+
+
 
 ## License
 
