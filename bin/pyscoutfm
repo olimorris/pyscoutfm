@@ -1,25 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-import json
-
-import click
-
-from PyScoutFM.application import main
-
-default_config = "config.json"
-
-
-# Set the command line options
-@click.command()
-@click.option("--config", default=default_config, help="The path to the config file.")
-@click.option("--import_path", help="The path to the scout report to import.")
-@click.option("--export_path", help="The path to export the scout report to.")
-@click.option("--ratings_path", help="The path to the ratings file.")
-@click.option("--ratings_set", help="The ratings set to use.")
-def cli(config, import_path, export_path, ratings_path, ratings_set):
-    main()
-    # main(config, import_path, export_path, ratings_path, ratings_set)
-
+from PyScoutFM.application import app
 
 if __name__ == "__main__":
-    cli()
+    app()
