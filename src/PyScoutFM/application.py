@@ -1,11 +1,9 @@
 import typer
 from typing_extensions import Annotated
 
+from PyScoutFM.importer import Importer
+
 app = typer.Typer(add_completion=False)
-
-
-def validate(config):
-    return True
 
 
 @app.command()
@@ -20,14 +18,14 @@ def main(
 
     Use the power of Python to traverse the cosmos and evaluate players within the Football Manager series
     """
-    if validate(config):
-        typer.echo("Validated")
+    # Load and process the config file
+    importer = Importer(config)
+    ratings = importer.load_ratings()
+    input_file = importer.find_latest_file(importer.config["import_path"], "*.html")
 
-    # Validate the config file
+    # Inital data manipulation
 
-    # Load the config file
-
-    # Begin computing the player ratings
+    # Compute player ratings
 
     # Generate the output
 
