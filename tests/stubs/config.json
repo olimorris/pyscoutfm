@@ -1,0 +1,20 @@
+{
+  "import_path": "~/Documents/input",
+  "export_path": "~/Documents/output",
+  "ratings_path": "ratings.json",
+  "ratings_set": "ykykyk_balanced",
+  "filter_values_below": 45,
+  "paginate": 30,
+  "output_columns": [
+    "Name",
+    "Age",
+    "Club",
+    "Transfer Value",
+    "Wage",
+    "1st Nat",
+    "Position",
+    "Personality",
+    "Left Foot",
+    "Right Foot"
+  ]
+}

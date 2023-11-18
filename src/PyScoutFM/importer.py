@@ -34,7 +34,7 @@ class Importer:
         """
         Find the latest file in a given directory with a specific extension.
         """
-        files = glob.glob(os.path.join(os.path.expanduser(path), extension))
-        if files:
-            return max(files, key=os.path.getctime)
-        return None
+        files = glob.glob(os.path.join(os.path.expanduser(path)) + "/" + extension)
+        files.sort(key=os.path.getmtime)
+
+        return files[-1] if files else None
