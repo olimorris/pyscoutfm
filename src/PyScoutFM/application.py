@@ -1,6 +1,9 @@
 import typer
 from typing_extensions import Annotated
 
+from PyScoutFM.data import Data
+from PyScoutFM.formatter import Formatter
+from PyScoutFM.generator import Generator
 from PyScoutFM.importer import Importer
 
 app = typer.Typer(add_completion=False)
@@ -16,20 +19,28 @@ def main(
     """
     PyScoutFM
 
-    Use the power of Python to traverse the cosmos and evaluate players within the Football Manager series
+    Use the power of Python to traverse the cosmos and scout players within the Football Manager series
     """
     # Load and process the config file
     importer = Importer(config)
     ratings = importer.load_ratings()
-    input_file = importer.find_latest_file(importer.config["import_path"], "*.html")
+    c = importer.config
+    input_file = importer.find_latest_file(c["import_path"], "*.html")
 
-    # Inital data manipulation
+    # Fix the input data
+    data = Data(input_file, importer.config)
+    data.pre_processing_fixes(ratings)
 
     # Compute player ratings
+    for key, ratings_data in ratings[c["ratings_set"]].items():
+        data.export[key.upper()] = data.calculator(key, ratings_data)
+
+    # Fix the output data
+    output = data.post_processing_fixes(ratings)
 
     # Generate the output
-
-    print(f"Hello {config}")
+    html = Formatter(output).to_html()
+    Generator.output(html, c["export_path"])
 
 
 if __name__ == "__main__":
