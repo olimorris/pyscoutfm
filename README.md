@@ -30,6 +30,22 @@
 - Football Manager (any version that supports the supplied views)
 - Windows/MacOS operating systems
 
+## :package: Installation
+
+### Windows
+
+1. Install [Python](https://www.python.org/downloads/windows/)
+2. Verify it's installed by opening up a Command Prompt and running `python -V`
+3. Then in the Command Prompt, run `pip install pyscoutfm`
+4. Now run `pyscoutfm -V` to verify it's installed
+
+### Mac
+
+1. Install Python - [This guide](https://docs.python-guide.org/starting/install3/osx/) is a great resource
+2. Verify it's installed by opening the Terminal app and running `python -V`
+3. Then in the Terminal, run `pip install pyscoutfm`
+4. Now run `pyscoutfm -V` to verify it's installed
+
 ## :video_game: Getting Started
 
 Firstly, make sure that you have followed the steps in the [Installation](#package-installation) section and then opened up the terminal of your choice. In Windows this will be the Command Prompt and on Mac, the Terminal app.
@@ -94,18 +110,3 @@ Where `MY_LOCATION` is the path from step 5.
 
 8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
 
-## :package: Installation
-
-### Windows
-
-1. Install [Python](https://www.python.org/downloads/windows/)
-2. Verify it's installed by opening up Command Prompt > Running `python -V`
-3. Then in the Command Prompt, run `pip install pyscoutfm`
-4. Now run `pyscoutfm -V` to verify it's installed
-
-### Mac
-
-1. Install Python [this guide](https://docs.python-guide.org/starting/install3/osx/) is a great resource
-2. Verify it's installed by opening up Terminal > Running `python -V`
-3. Then in the Terminal, run `pip install pyscoutfm`
-4. Now run `pyscoutfm -V` to verify it's installed

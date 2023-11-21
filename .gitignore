@@ -5,4 +5,5 @@ __pycache__/
 .ipynb_checkpoints/
 input/**/*
 output/**/*
+tests/stubs/output/
 todo.md
