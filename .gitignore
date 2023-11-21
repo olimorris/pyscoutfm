@@ -6,5 +6,5 @@ __pycache__/
 dist/
 input/**/*
 output/**/*
-tests/stubs/output/
+tests/stubs/outputs/
 todo.md

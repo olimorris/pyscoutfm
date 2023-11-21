@@ -90,12 +90,12 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
 
 ### Rank players with PyScoutFM
 
-By default, the tool comes with a preset [config](config.json) file along with some sensible [ratings](ratings.json). We will use those but tweak the `import_path` to match the location from step 5:
+By default, the tool comes with a default [config](config.json) file along with some sensible [ratings](ratings.json). We will use those but tweak the `import-path` to match the location from step 5:
 
 6. In your terminal application run the command:
 
 ```sh
-pyscoutfm generate --import_path=MY_LOCATION
+pyscoutfm generate --import-path=MY_LOCATION
 ```
 
 Where `MY_LOCATION` is the path from step 5.
@@ -109,4 +109,7 @@ Where `MY_LOCATION` is the path from step 5.
 </div>
 
 8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
+
+## :telescope: How does it work?
+
 

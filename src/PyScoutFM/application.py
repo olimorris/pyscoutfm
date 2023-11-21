@@ -55,11 +55,16 @@ def copy_views_to(
 
 
 @app.command()
-# TODO: Enable users to pass config params via CLI
 def generate(
     config: Annotated[
-        str, typer.Argument(help="The path to the config file to use")
+        str, typer.Option(help="The path to the config file to use")
     ] = config_path,
+    import_path: Annotated[
+        Optional[str], typer.Option(help="The path to the directory to import from")
+    ] = None,
+    export_path: Annotated[
+        Optional[str], typer.Option(help="The path to the directory to export to")
+    ] = None,
 ):
     """
     Generate a scouting report from the data exported from FM
@@ -67,8 +72,30 @@ def generate(
 
     # Load and process the config file
     importer = Importer(config)
-    ratings = importer.load_ratings()
     c = importer.config
+
+    # Validate the import path
+    # TODO: Refactor this mes
+    if import_path is not None:
+        import_path = os.path.expanduser(import_path)
+        if not os.path.exists(import_path):
+            return print(
+                f"[bold red]Error:[/bold red] The path '{import_path}' does not exist"
+            )
+
+        c["import_path"] = import_path
+
+    # Validate the export path
+    if export_path is not None:
+        export_path = os.path.expanduser(export_path)
+        if not os.path.exists(export_path):
+            return print(
+                f"[bold red]Error:[/bold red] The path '{export_path}' does not exist"
+            )
+
+        c["export_path"] = export_path
+
+    ratings = importer.load_ratings()
     input_file = importer.find_latest_file(c["import_path"], "*.html")
 
     # Fix the input data
