@@ -18,15 +18,16 @@
 
 ## :sparkles: Features
 
+- Generate scout reports from your squad and scouting screens within FM
 - Uses a customisable rating system to score players out of 100
 - Tweak or create your own ratings to evaluate players
-- Export the computed data into a pretty HTML file
-- Easily search and sort the players in the export
+- Exports the scout report into a pretty HTML file
+- Easily search and sort the players in the scout report
 - Easily export from the game using the [provided views](extras)
 
 ## :zap: Requirements
 
-- Python >= 3.
+- Python >= 3.8
 - Football Manager (any version that supports the supplied views)
 - Windows/MacOS operating systems
 
@@ -50,7 +51,7 @@
 
 Firstly, make sure that you have followed the steps in the [Installation](#package-installation) section and then opened up the terminal of your choice. In Windows this will be the Command Prompt and on Mac, the Terminal app.
 
-For the purposes of this section, I'll show you how you can go from zero to having a rated list of players from FM.
+For the purposes of this section, I'll show you how you can go from zero to generating a scout report.
 
 1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a command. For example:
 
@@ -88,7 +89,7 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/87282629-35b7-4fad-a5e0-360eef3d12a3" alt="saving the print file" />
 </div>
 
-### Rank players with PyScoutFM
+### Generating a Scout Report
 
 By default, the tool comes with a default [config](config.json) file along with some sensible [ratings](ratings.json). We will use those but tweak the `import-path` to match the location from step 5:
 
@@ -105,7 +106,8 @@ Where `MY_LOCATION` is the path from step 5.
 7. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional rankings which have been calculated with the tool:
 
 <div align="center">
-  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/0f7697a1-8ccc-4225-8c43-ac70cbdc55e7" alt="Output from the tool" />
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/01560f9d-2875-4986-b973-caf02aeef3fc" alt="The scout
+    report" />
 </div>
 
 8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.

@@ -28,7 +28,7 @@ class Formatter:
                 </style>
             </head>
             <body>
-                <h1>PyScoutFM - Output</h1>
+                <h1>PyScoutFM - Scout Report</h1>
                 <div>
                 {table}
                 </div>
