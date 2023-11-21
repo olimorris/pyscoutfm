@@ -1,3 +1,4 @@
 graft extras
 include config.json
 include ratings.json
+include README.md
