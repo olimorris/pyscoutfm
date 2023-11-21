@@ -110,6 +110,10 @@ Where `MY_LOCATION` is the path from step 5.
 
 8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
 
+## :hammer: Advanced usage
+
+To be updated
+
 ## :telescope: How does it work?
 
-
+To be updated
