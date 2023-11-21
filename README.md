@@ -37,14 +37,24 @@
 
 1. Check if you have Python installed by opening up a Command Prompt and typing `python -V`
 2. Install [Python](https://www.python.org/downloads/windows/) if you need to
-3. Once installed, in the Command Prompt, run `pip install pyscoutfm`
+3. Once installed, in the Command Prompt, run:
+
+```sh
+pip install pyscoutfm
+```
+
 4. Now run `pyscoutfm -V` to verify it's installed
 
 ### Mac
 
 1. Check if you have Python installed by opening the Terminal app and typing `python -V`
 2. Install [Python](https://docs.python-guide.org/starting/install3/osx/) if you need to
-3. Once installed, in the Terminal, run `pip install pyscoutfm`
+3. Once installed, in the Terminal, run:
+
+```sh
+pip install pyscoutfm
+```
+
 4. Now run `pyscoutfm -V` to verify it's installed
 
 ## :video_game: Getting Started
