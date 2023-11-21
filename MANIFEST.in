@@ -1,0 +1,3 @@
+graft extras
+include config.json
+include ratings.json
