@@ -36,7 +36,7 @@ Firstly, make sure that you have followed the steps in the [Installation](#packa
 
 For the purposes of this section, I'll show you how you can go from zero to having a rated list of players from FM.
 
-1. Firstly, and for reference, to see a list of the commands available to you with PyScoutFM, run:
+1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a command. For example:
 
 ```sh
 pyscoutfm --help
@@ -52,15 +52,29 @@ But let's focus on getting some player data out of FM. To do this, we'll need to
 pyscoutfm copy-views-to --path="MY_LOCATION"
 ```
 
-Where `MY_LOCATION` is the path you wish to copy the views to
+> Where `MY_LOCATION` is the path you wish to copy the views to
 
-3. Import these views into FM; we'll start with the main squad screen of the team you're managing.
-4. In the squad screen, use <kbd>Ctrl</kbd>+<kbd>a</kbd> (Windows) or <kbd>⌘</kbd>+<kbd>a</kbd> (Mac) to select all of the players in the screen, followed by <kbd>Ctrl</kbd>+<kbd>p</kbd>/<kbd>⌘</kbd>+<kbd>p</kbd>, selecting _Web Page_ as the print format
-5. Save the printed file into your chosen location
+3. Import these views into FM; we'll start with the main squad screen of the team you're managing:
+
+<div align="center">
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/bf1a1711-6d40-4c93-b77f-06a8aba216dc" alt="importing a view" />
+</div>
+
+4. In the squad screen, use <kbd>Ctrl</kbd>+<kbd>a</kbd> (Windows) or <kbd>⌘</kbd>+<kbd>a</kbd> (Mac) to select all of the players in the screen, followed by <kbd>Ctrl</kbd>+<kbd>p</kbd>/<kbd>⌘</kbd>+<kbd>p</kbd>, selecting _Web Page_ as the print format:
+
+<div align="center">
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/1d7c7254-1a41-4aed-ad01-3e825ba0e78b" alt="printing a screen" />
+</div>
+
+5. Save the printed file into your chosen location:
+
+<div align="center">
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/87282629-35b7-4fad-a5e0-360eef3d12a3" alt="saving the print file" />
+</div>
 
 ### Rank players with PyScoutFM
 
-By default, the tool comes with a preset [config](config.json) file along with some sensible [ratings](ratings.json). We will use those but tweak the `import_path` to match the location in step 5:
+By default, the tool comes with a preset [config](config.json) file along with some sensible [ratings](ratings.json). We will use those but tweak the `import_path` to match the location from step 5:
 
 6. In your terminal application run the command:
 
@@ -68,12 +82,17 @@ By default, the tool comes with a preset [config](config.json) file along with s
 pyscoutfm generate --import_path=MY_LOCATION
 ```
 
-Where `MY_LOCATION` is the path you from step 5.
+Where `MY_LOCATION` is the path from step 5.
 
-The tool is smart enough to only load the most _html_ export from FM and opening up the location in your OS should reveal two new _html_ files that the tool has generated.
+> **Note**: The tool is smart enough to only load the most recent _html_ file in the directory you specify
 
-7. Open up `latest.html` in your browser and you should see your players from the squad screen but with positional rankings which have been calculated with the tool
-8. Clicking on the column headings allows you to sort by that column and a helpful search box makes it easier to find specific players
+7. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional rankings which have been calculated with the tool:
+
+<div align="center">
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/0f7697a1-8ccc-4225-8c43-ac70cbdc55e7" alt="Output from the tool" />
+</div>
+
+8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
 
 ## :package: Installation
 
