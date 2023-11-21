@@ -15,3 +15,5 @@ class Generator:
         # Write the HTML to disk
         with open(os.path.join(path, filename), "w", encoding="UTF-8") as file:
             file.write(data)
+        with open(os.path.join(path, "latest.html"), "w", encoding="UTF-8") as file:
+            file.write(data)

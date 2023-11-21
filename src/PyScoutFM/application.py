@@ -1,6 +1,9 @@
+import os
+import shutil
 from typing import Optional
 
 import typer
+from rich import print
 from typing_extensions import Annotated
 
 from PyScoutFM import __version__
@@ -11,28 +14,55 @@ from PyScoutFM.importer import Importer
 
 app = typer.Typer(add_completion=False)
 
+# Set the correct paths
+local_path = os.path.dirname(os.path.abspath(__file__))
+views_path = os.path.abspath(os.path.join(local_path, "../../extras"))
+config_path = os.path.abspath(os.path.join(local_path, "../../config.json"))
+ratings_path = os.path.abspath(os.path.join(local_path, "../../ratings.json"))
 
-def version_callback(value: bool):
-    if value:
-        print(f"PyScoutFM {__version__}")
-        raise typer.Exit()
+
+@app.command()
+def copy_views_to(
+    path: Annotated[
+        str,
+        typer.Option(
+            "--path",
+            "-p",
+            help="The paths to copy the views to",
+        ),
+    ] = "",
+):
+    """
+    Copy the included views to a specified path before importing into FM
+    """
+    path = os.path.expanduser(path)
+
+    if not os.path.exists(path):
+        return print(f"[bold red]Error:[/bold red] The path '{path}' does not exist")
+
+    for filename in os.listdir(views_path):
+        source_file = os.path.join(views_path, filename)
+
+        if os.path.isfile(source_file):
+            destination_file = os.path.join(path, filename)
+
+            shutil.copy(source_file, destination_file)
+            print(
+                f"[bold green]Success:[/bold green] The '{filename}' view has been copied"
+            )
+
+    raise typer.Exit()
 
 
 @app.command()
 # TODO: Enable users to pass config params via CLI
-def main(
+def generate(
     config: Annotated[
         str, typer.Argument(help="The path to the config file to use")
-    ] = "config.json",
-    version: Annotated[
-        Optional[bool],
-        typer.Option("--version", "-V", callback=version_callback, is_eager=True),
-    ] = None,
+    ] = config_path,
 ):
     """
-    PyScoutFM
-
-    Use the power of Python to traverse the cosmos and scout players within the Football Manager series
+    Generate a scouting report from the data exported from FM
     """
 
     # Load and process the config file
@@ -55,6 +85,36 @@ def main(
     # Generate the output
     html = Formatter(output).to_html()
     Generator.output(html, c["export_path"])
+
+    print(
+        f"[bold green]Success:[/bold green] Your scouting report has been generated to '{c['export_path']}'"
+    )
+
+
+def version_callback(value: bool):
+    if value:
+        typer.echo(f"PyScoutFM Version: {__version__}")
+        raise typer.Exit()
+
+
+@app.callback()
+def main(
+    version: Annotated[
+        Optional[bool],
+        typer.Option(
+            "--version",
+            "-V",
+            callback=version_callback,
+            help="Show the version and exit.",
+        ),
+    ] = None,
+):
+    """
+    PyScoutFM
+
+    Use the power of Python to traverse the cosmos and scout for players within the Football Manager game
+    """
+    pass
 
 
 if __name__ == "__main__":
