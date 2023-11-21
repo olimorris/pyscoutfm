@@ -13,7 +13,7 @@
 
 <p align="center">
     Use the power of Python to traverse the cosmos and scout for players within the <a href="https://www.footballmanager.com">Football Manager</a> game<br><br>
-    Inspired by the fantastic work of <a href="https://www.youtube.com/@squirrel_plays_fof4318">@squirrel_plays</a> and the contributors on this thread at <a href="https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position/">FM-Arena</a>
+    Inspired by the fantastic work of <a href="https://www.youtube.com/@squirrel_plays_fof4318">@squirrel_plays</a> and the contributors on <a href="https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position/">this</a> thread at <a href="https://fm-arena.com">FM-Arena</a>
 </p>
 
 ## :sparkles: Features
@@ -26,7 +26,7 @@
 
 ## :zap: Requirements
 
-- Python >= 3.8
+- Python >= 3.
 - Football Manager (any version that supports the supplied views)
 - Windows/MacOS operating systems
 
