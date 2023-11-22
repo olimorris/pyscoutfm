@@ -1,7 +1,11 @@
 import glob
+import importlib.resources as pkg_resources
 import json
 import os
 from typing import Any, Dict, Optional
+
+package_name = "PyScoutFM"
+config_directory = "config"
 
 
 class Importer:
@@ -19,16 +23,28 @@ class Importer:
         with open(os.path.expanduser(config_path), "r") as file:
             return json.load(file)
 
-    def load_ratings(self) -> Any:
+    def load_ratings(self, ratings_path):
         """
         Load ratings data from a file specified in the config.
         """
-        ratings_path = self.config.get("ratings_path")
-        if ratings_path:
-            with open(os.path.expanduser(ratings_path), "r") as file:
-                return json.load(file)
-        else:
-            raise ValueError("Ratings path not found in the configuration.")
+        # If the user doesn't specify a ratings path, use the default.
+        if not ratings_path:
+            ratings_path = self.config.get("ratings_path")
+
+            # Construct the path to the resource
+            resource_path = (
+                pkg_resources.files(f"{package_name}.{config_directory}") / ratings_path
+            )
+
+            try:
+                with resource_path.open("r") as file:
+                    return json.load(file)
+            except FileNotFoundError:
+                raise FileNotFoundError(
+                    f"Could not find {ratings_path} in the {package_name}.{config_directory} package."
+                )
+
+            # raise ValueError("Ratings path not found in the configuration.")
 
     def find_latest_file(self, path: str, extension: str) -> Optional[str]:
         """

@@ -1,7 +1,7 @@
 {
   "import_path": "tests/stubs/inputs",
   "export_path": "tests/stubs/outputs",
-  "ratings_path": "tests/stubs/ratings.json",
+  "ratings_path": "ratings.json",
   "ratings_set": "ykykyk_balanced",
   "filter_values_below": 45,
   "paginate": 30,

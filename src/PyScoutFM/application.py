@@ -16,9 +16,8 @@ app = typer.Typer(add_completion=False)
 
 # Set the correct paths
 local_path = os.path.dirname(os.path.abspath(__file__))
-views_path = os.path.abspath(os.path.join(local_path, "../../extras"))
-config_path = os.path.abspath(os.path.join(local_path, "../../config.json"))
-ratings_path = os.path.abspath(os.path.join(local_path, "../../ratings.json"))
+views_path = os.path.abspath(os.path.join(local_path, "extras"))
+config_path = os.path.abspath(os.path.join(local_path, "config/config.json"))
 
 
 @app.command()
@@ -65,6 +64,9 @@ def generate(
     export_path: Annotated[
         Optional[str], typer.Option(help="The path to the directory to export to")
     ] = None,
+    ratings_path: Annotated[
+        Optional[str], typer.Option(help="The path to the ratings file to use")
+    ] = None,
 ):
     """
     Generate a scouting report from the data exported from FM
@@ -95,7 +97,17 @@ def generate(
 
         c["export_path"] = export_path
 
-    ratings = importer.load_ratings()
+    # Validate the ratings_path
+    if ratings_path is not None:
+        ratings_path = os.path.expanduser(ratings_path)
+        if not os.path.exists(ratings_path):
+            return print(
+                f"[bold red]Error:[/bold red] The path '{ratings_path}' does not exist"
+            )
+
+        c["ratings_path"] = ratings_path
+
+    ratings = importer.load_ratings(ratings_path)
     input_file = importer.find_latest_file(c["import_path"], "*.html")
 
     # Fix the input data

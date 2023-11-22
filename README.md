@@ -23,7 +23,7 @@
 - Tweak or create your own ratings to evaluate players
 - Exports the scout report into a pretty HTML file
 - Easily search and sort the players in the scout report
-- Easily export from the game using the [provided views](extras)
+- Easily export from the game using the [provided views](src/PyScoutFM/extras)
 
 ## :zap: Requirements
 
@@ -101,7 +101,7 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
 
 ### Generating a Scout Report
 
-By default, the tool comes with a default [config](config.json) file along with some sensible [ratings](ratings.json). We will use those but tweak the `import-path` to match the location from step 5:
+By default, the tool comes with a default [config](src/PyScoutFM/config/config.json) file along with some sensible [ratings](src/PyScoutFM/config/ratings.json). We will use those but tweak the `import-path` to match the location from step 5:
 
 6. In your terminal application run the command:
 
