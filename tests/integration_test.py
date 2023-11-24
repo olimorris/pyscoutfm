@@ -3,8 +3,8 @@ import os
 import pytest
 from typer.testing import CliRunner
 
-from PyScoutFM import __version__
-from PyScoutFM.application import app
+from pyscoutfm import __version__
+from pyscoutfm.application import app
 
 runner = CliRunner()
 

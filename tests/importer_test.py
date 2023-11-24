@@ -5,7 +5,7 @@ from unittest.mock import mock_open, patch
 
 import pytest
 
-from PyScoutFM.importer import Importer
+from pyscoutfm.importer import Importer
 
 
 @pytest.fixture

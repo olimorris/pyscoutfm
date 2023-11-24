@@ -6,11 +6,11 @@ import typer
 from rich import print
 from typing_extensions import Annotated
 
-from PyScoutFM import __version__
-from PyScoutFM.data import Data
-from PyScoutFM.formatter import Formatter
-from PyScoutFM.generator import Generator
-from PyScoutFM.importer import Importer
+from pyscoutfm import __version__
+from pyscoutfm.data import Data
+from pyscoutfm.formatter import Formatter
+from pyscoutfm.generator import Generator
+from pyscoutfm.importer import Importer
 
 app = typer.Typer(add_completion=False)
 

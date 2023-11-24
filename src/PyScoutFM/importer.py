@@ -4,7 +4,7 @@ import json
 import os
 from typing import Any, Dict, Optional
 
-package_name = "PyScoutFM"
+package_name = "pyscoutfm"
 config_directory = "config"
 
 

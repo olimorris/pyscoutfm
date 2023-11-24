@@ -130,7 +130,7 @@ The available options are:
 
 ### Copy Views Command
 
-    pyscoutfm copy-views-to [OPTIONS]
+    Usage: pyscoutfm copy-views-to [OPTIONS]
 
     Copy the included views to a specified path before importing into FM
 
@@ -140,7 +140,7 @@ The available options are:
 
 ### Generate Command
 
-    pyscoutfm generate [OPTIONS]
+    Usage: pyscoutfm generate [OPTIONS]
 
     Generate a scouting report from the data exported from FM
 
