@@ -34,7 +34,7 @@
 ## :package: Installation
 
 1. Check if you have Python installed by opening up a Command Prompt/Terminal and typing `python -V`
-2. Install [Python](https://www.python.org/downloads/) if you don't.
+2. Install [Python](https://www.python.org/downloads/) if you don't. If you're on Windows, follow [this](WINDOWS_INSTALL) guide. If you're on Mac, I suggest using [Homebrew](https://brew.sh) to manage it.
 3. Once installed, in the Command Prompt/Terminal, run:
 
 ```
@@ -49,7 +49,7 @@ pyscoutfm -v
 
 ## :video_game: Generating a Scout Report
 
-Let's skip the full usage of the tool and quickly generate a scouting report from the command line.
+To it simple, let's quickly generate a scouting report from the command line.
 
 1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a command:
 
