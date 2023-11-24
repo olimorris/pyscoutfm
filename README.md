@@ -27,67 +27,55 @@
 
 ## :zap: Requirements
 
-- Python >= 3.8
+- Python >= 3.10
 - Football Manager (any version that supports the supplied views)
-- Windows/MacOS operating systems
+- Windows/MacOS
 
 ## :package: Installation
 
-### Windows
+1. Check if you have Python installed by opening up a Command Prompt/Terminal and typing `python -V`
+2. Install [Python](https://www.python.org/downloads/) if you don't.
+3. Once installed, in the Command Prompt/Terminal, run:
 
-1. Check if you have Python installed by opening up a Command Prompt and typing `python -V`
-2. Install [Python](https://www.python.org/downloads/windows/) if you need to
-3. Once installed, in the Command Prompt, run:
-
-```sh
+```
 pip install pyscoutfm
 ```
 
-4. Now run `pyscoutfm -V` to verify it's installed
+4. To verify the installation, run:
 
-### Mac
-
-1. Check if you have Python installed by opening the Terminal app and typing `python -V`
-2. Install [Python](https://docs.python-guide.org/starting/install3/osx/) if you need to
-3. Once installed, in the Terminal, run:
-
-```sh
-pip install pyscoutfm
+```
+pyscoutfm -v
 ```
 
-4. Now run `pyscoutfm -V` to verify it's installed
+## :video_game: Generating a Scout Report
 
-## :video_game: Getting Started
+Let's skip the full usage of the tool and quickly generate a scouting report from the command line.
 
-Firstly, make sure that you have followed the steps in the [Installation](#package-installation) section and then opened up the terminal of your choice. In Windows this will be the Command Prompt and on Mac, the Terminal app.
+1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a command:
 
-For the purposes of this section, I'll show you how you can go from zero to generating a scout report.
-
-1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a command. For example:
-
-```sh
-pyscoutfm --help
 ```
-
-But let's focus on getting some player data out of FM. To do this, we'll need to use the _views_ that come supplied with PyScoutFM.
+pyscoutfm generate --help
+```
 
 ### Export data from FM
 
-2. Run:
+The tool requires an extract of data from Football Manager. To make this easy, we can use the _views_ that come supplied with PyScoutFM.
 
-```sh
+2. To save you hunting for them, run:
+
+```
 pyscoutfm copy-views-to --path="MY_LOCATION"
 ```
 
 > Where `MY_LOCATION` is the path you wish to copy the views to
 
-3. Import these views into FM; we'll start with the main squad screen of the team you're managing:
+3. Import these views into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/bf1a1711-6d40-4c93-b77f-06a8aba216dc" alt="importing a view" />
 </div>
 
-4. In the squad screen, use <kbd>Ctrl</kbd>+<kbd>a</kbd> (Windows) or <kbd>⌘</kbd>+<kbd>a</kbd> (Mac) to select all of the players in the screen, followed by <kbd>Ctrl</kbd>+<kbd>p</kbd>/<kbd>⌘</kbd>+<kbd>p</kbd>, selecting _Web Page_ as the print format:
+4. In the squad screen, use <kbd>Ctrl</kbd>+<kbd>a</kbd> (Windows) or <kbd>⌘</kbd>+<kbd>a</kbd> (Mac) to select all of the players in the screen (this can be laggy!), followed by <kbd>Ctrl</kbd>+<kbd>p</kbd>/<kbd>⌘</kbd>+<kbd>p</kbd>, selecting _Web Page_ as the print format:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/1d7c7254-1a41-4aed-ad01-3e825ba0e78b" alt="printing a screen" />
@@ -99,14 +87,14 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/87282629-35b7-4fad-a5e0-360eef3d12a3" alt="saving the print file" />
 </div>
 
-### Generating a Scout Report
+### Generating the Scout Report
 
-By default, the tool comes with a default [config](src/PyScoutFM/config/config.json) file along with some sensible [ratings](src/PyScoutFM/config/ratings.json). We will use those but tweak the `import-path` to match the location from step 5:
+By default, the tool comes with a default [config](src/PyScoutFM/config/config.json) file along with some sensible [ratings](src/PyScoutFM/config/ratings.json). We will use those but tweak the `import-path` option to match the location from step 5:
 
 6. In your terminal application run the command:
 
-```sh
-pyscoutfm generate --import-path=MY_LOCATION
+```
+pyscoutfm generate --import-path=MY_LOCATION --export-path=MY_LOCATION
 ```
 
 Where `MY_LOCATION` is the path from step 5.
@@ -116,11 +104,53 @@ Where `MY_LOCATION` is the path from step 5.
 7. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional rankings which have been calculated with the tool:
 
 <div align="center">
-  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/01560f9d-2875-4986-b973-caf02aeef3fc" alt="The scout
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/d6e1c53c-dfbd-4645-9314-04590d09ef71" alt="The scout
     report" />
 </div>
 
 8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
+
+## :rocket: Commands
+
+To get started, run:
+
+    pyscoutfm --help
+
+The available options are:
+
+    Usage: pyscoutfm [OPTIONS] COMMAND [ARGS]...
+
+    Options:
+    --version  -V        Show the version and exit.
+    --help               Show this message and exit.
+
+    Commands:
+    copy-views-to       Copy the included views to a specified path before importing into FM
+    generate            Generate a scouting report from the data exported from FM
+
+### Copy Views Command
+
+    pyscoutfm copy-views-to [OPTIONS]
+
+    Copy the included views to a specified path before importing into FM
+
+    Options:
+    --path  -p      TEXT  The paths to copy the views to
+    --help                Show this message and exit.
+
+### Generate Command
+
+    pyscoutfm generate [OPTIONS]
+
+    Generate a scouting report from the data exported from FM
+
+    Options:
+    --config-path         TEXT  The path to the config file to use
+    --import-path         TEXT  The path to the directory to import from [default: None]
+    --export-path         TEXT  The path to the directory to export to [default: None]
+    --ratings-path        TEXT  The path to the ratings file to use [default: None]
+    --ratings-set         TEXT  The ratings set to use [default: None]
+    --help                      Show this message and exit.
 
 ## :hammer: Advanced usage
 
