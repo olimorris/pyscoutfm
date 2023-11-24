@@ -23,12 +23,12 @@ class Importer:
         with open(os.path.expanduser(config_path), "r") as file:
             return json.load(file)
 
-    def load_ratings(self, ratings_path):
+    def load_ratings(self, ratings_path, user_rating):
         """
         Load ratings data from a file specified in the config.
         """
         # If the user doesn't specify a ratings path, use the default.
-        if not ratings_path:
+        if not user_rating:
             ratings_path = self.config.get("ratings_path")
 
             # Construct the path to the resource
@@ -36,15 +36,16 @@ class Importer:
                 pkg_resources.files(f"{package_name}.{config_directory}") / ratings_path
             )
 
-            try:
-                with resource_path.open("r") as file:
-                    return json.load(file)
-            except FileNotFoundError:
-                raise FileNotFoundError(
-                    f"Could not find {ratings_path} in the {package_name}.{config_directory} package."
-                )
+        else:
+            resource_path = os.path.expanduser(ratings_path)
 
-            # raise ValueError("Ratings path not found in the configuration.")
+        try:
+            with open(resource_path, "r") as file:
+                return json.load(file)
+        except FileNotFoundError:
+            raise FileNotFoundError(
+                f"Could not find {ratings_path} in the {package_name}.{config_directory} package."
+            )
 
     def find_latest_file(self, path: str, extension: str) -> Optional[str]:
         """

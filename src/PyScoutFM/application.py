@@ -55,79 +55,71 @@ def copy_views_to(
 
 @app.command()
 def generate(
-    config: Annotated[
-        str, typer.Option(help="The path to the config file to use")
-    ] = config_path,
-    import_path: Annotated[
-        Optional[str], typer.Option(help="The path to the directory to import from")
-    ] = None,
-    export_path: Annotated[
-        Optional[str], typer.Option(help="The path to the directory to export to")
-    ] = None,
-    ratings_path: Annotated[
-        Optional[str], typer.Option(help="The path to the ratings file to use")
-    ] = None,
+    config_path: str = typer.Option(
+        config_path, help="The path to the config file to use"
+    ),
+    import_path: Optional[str] = typer.Option(
+        None, help="The path to the directory to import from"
+    ),
+    export_path: Optional[str] = typer.Option(
+        None, help="The path to the directory to export to"
+    ),
+    ratings_path: Optional[str] = typer.Option(
+        None, help="The path to the ratings file to use"
+    ),
+    ratings_set: Optional[str] = typer.Option(None, help="The ratings set to use"),
 ):
     """
     Generate a scouting report from the data exported from FM
     """
 
     # Load and process the config file
-    importer = Importer(config)
+    importer = Importer(config_path)
     c = importer.config
 
-    # Validate the import path
-    # TODO: Refactor this mes
-    if import_path is not None:
-        import_path = os.path.expanduser(import_path)
-        if not os.path.exists(import_path):
-            return print(
-                f"[bold red]Error:[/bold red] The path '{import_path}' does not exist"
-            )
+    # Validate the paths
+    c["import_path"] = validate_path(import_path, "import") or c["import_path"]
+    c["export_path"] = validate_path(export_path, "export") or c["export_path"]
+    user_rating = False
+    if ratings_path:
+        c["ratings_path"] = validate_path(ratings_path, "ratings") or c["ratings_path"]
+        user_rating = True
 
-        c["import_path"] = import_path
+    # Load the ratings and validate the ratings set
+    ratings = importer.load_ratings(c["ratings_path"], user_rating)
+    if ratings_set and ratings_set not in ratings:
+        print(f"The ratings set '{ratings_set}' does not exist")
+        raise typer.Exit(1)
+    c["ratings_set"] = ratings_set or list(ratings.keys())[0]
 
-    # Validate the export path
-    if export_path is not None:
-        export_path = os.path.expanduser(export_path)
-        if not os.path.exists(export_path):
-            return print(
-                f"[bold red]Error:[/bold red] The path '{export_path}' does not exist"
-            )
-
-        c["export_path"] = export_path
-
-    # Validate the ratings_path
-    if ratings_path is not None:
-        ratings_path = os.path.expanduser(ratings_path)
-        if not os.path.exists(ratings_path):
-            return print(
-                f"[bold red]Error:[/bold red] The path '{ratings_path}' does not exist"
-            )
-
-        c["ratings_path"] = ratings_path
-
-    ratings = importer.load_ratings(ratings_path)
+    # Processing
     input_file = importer.find_latest_file(c["import_path"], "*.html")
-
-    # Fix the input data
     data = Data(input_file, importer.config)
     data.pre_processing_fixes(ratings)
-
-    # Compute player ratings
-    for key, ratings_data in ratings[c["ratings_set"]].items():
-        data.export[key.upper()] = data.calculator(key, ratings_data)
-
-    # Fix the output data
+    process_player_ratings(data, ratings, c["ratings_set"])
     output = data.post_processing_fixes(ratings)
 
-    # Generate the output
+    # Generate output
     html = Formatter(output).to_html()
     Generator.output(html, c["export_path"])
-
     print(
         f"[bold green]Success:[/bold green] Your scouting report has been generated to '{c['export_path']}'"
     )
+
+
+def validate_path(path, path_type):
+    if path is None:
+        return
+    expanded_path = os.path.expanduser(path)
+    if not os.path.exists(expanded_path):
+        print(f"Error: The {path_type} path '{path}' does not exist")
+        typer.Exit(1)
+    return expanded_path
+
+
+def process_player_ratings(data, ratings, ratings_set):
+    for key, ratings_data in ratings[ratings_set].items():
+        data.export[key.upper()] = data.calculator(key, ratings_data)
 
 
 def version_callback(value: bool):

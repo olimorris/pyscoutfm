@@ -23,7 +23,47 @@ def test_version():
 
 
 def test_generate():
-    result = runner.invoke(app, ["generate", "--config", "tests/stubs/config.json"])
+    result = runner.invoke(
+        app, ["generate", "--config-path", "tests/stubs/config.json"]
+    )
     assert result.exit_code == 0
     assert os.path.isfile("tests/stubs/outputs/latest.html"), "File was not created"
+    clean_up("tests/stubs/outputs/")
+
+
+def test_generate_custom_ratings():
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--config-path",
+            "tests/stubs/config.json",
+            "--ratings-path",
+            "tests/stubs/custom_ratings.json",
+            "--ratings-set",
+            "olis_ratings",
+        ],
+    )
+    assert result.exit_code == 0
+    assert os.path.isfile("tests/stubs/outputs/latest.html"), "File was not created"
+    clean_up("tests/stubs/outputs/")
+
+
+def test_wrong_rating_set_fails():
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--config-path",
+            "tests/stubs/config.json",
+            "--ratings-path",
+            "tests/stubs/custom_ratings.json",
+            "--ratings-set",
+            "ykykyk_balanced",  # This set does not exist within the custom ratings file
+        ],
+    )
+    assert result.exit_code == 1
+    assert not os.path.isfile(
+        "tests/stubs/outputs/latest.html"
+    ), "File was created when it should not have been"
     clean_up("tests/stubs/outputs/")
