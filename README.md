@@ -33,7 +33,9 @@
 ## :package: Installation
 
 1. Check if you have Python installed by opening up a Command Prompt/Terminal and typing `python -V`
-2. Install [Python](https://www.python.org/downloads/) if you don't. If you're on Windows, follow [this](WINDOWS_INSTALL.md) guide. If you're on Mac, I suggest using [Homebrew](https://brew.sh) to manage it.
+2. Install [Python](https://www.python.org/downloads/) if you don't.
+(If you're on Windows, follow [this guide](WINDOWS_INSTALL.md))
+(If you're on Mac, I suggest using [Homebrew](https://brew.sh) to do it)
 3. Once installed, in the Command Prompt/Terminal, run:
 
 ```
