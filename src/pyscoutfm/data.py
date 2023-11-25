@@ -66,7 +66,7 @@ class Data:
         # Filter and convert the weightings to a decimal
         att_weightings = {
             k: v / 100
-            for k, v in weightings_data["ratings"].items()
+            for k, v in weightings_data["weightings"].items()
             if v >= self.config["filter_values_below"]
         }
 

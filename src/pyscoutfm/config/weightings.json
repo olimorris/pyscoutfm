@@ -2,7 +2,7 @@
   "ykykykyky_balanced": {
     "gk": {
       "positions": ["GK"],
-      "ratings": {
+      "weightings": {
         "Aer": 60,
         "Cmd": 40,
         "Com": 30,
@@ -43,7 +43,7 @@
     },
     "cd": {
       "positions": ["D (C)", "D (LC)", "D (RC)", "D (RLC)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 1,
         "Dri": 40,
@@ -93,7 +93,7 @@
         "D (L)",
         "D (R)"
       ],
-      "ratings": {
+      "weightings": {
         "Cor": 30,
         "Cro": 25,
         "Dri": 50,
@@ -135,7 +135,7 @@
     },
     "dm": {
       "positions": ["DM"],
-      "ratings": {
+      "weightings": {
         "Cor": 10,
         "Cro": 10,
         "Dri": 45,
@@ -190,7 +190,7 @@
         "M (RL)",
         "M (RLC)"
       ],
-      "ratings": {
+      "weightings": {
         "Cor": 30,
         "Cro": 65,
         "Dri": 55,
@@ -232,7 +232,7 @@
     },
     "amc": {
       "positions": ["AM (C)", "M (C)", "AM (LC)", "AM (RC)", "AM (RLC)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 5,
         "Dri": 65,
@@ -274,7 +274,7 @@
     },
     "st": {
       "positions": ["ST (C)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 5,
         "Dri": 75,
@@ -318,7 +318,7 @@
   "ykykyk_balanced": {
     "gk": {
       "positions": ["GK"],
-      "ratings": {
+      "weightings": {
         "Aer": 60,
         "Cmd": 40,
         "Com": 30,
@@ -359,7 +359,7 @@
     },
     "cd": {
       "positions": ["D (C)", "D (LC)", "D (RC)", "D (RLC)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 1,
         "Dri": 40,
@@ -401,7 +401,7 @@
     },
     "fb": {
       "positions": ["D (LC)", "D (RC)", "D (RLC)", "D (RL)", "D (L)", "D (R)"],
-      "ratings": {
+      "weightings": {
         "Cor": 30,
         "Cro": 25,
         "Dri": 50,
@@ -443,7 +443,7 @@
     },
     "wb": {
       "positions": ["WB"],
-      "ratings": {
+      "weightings": {
         "Cor": 30,
         "Cro": 40,
         "Dri": 50,
@@ -485,7 +485,7 @@
     },
     "dm": {
       "positions": ["DM"],
-      "ratings": {
+      "weightings": {
         "Cor": 10,
         "Cro": 10,
         "Dri": 45,
@@ -527,7 +527,7 @@
     },
     "m": {
       "positions": ["M (C)", "M (LC)", "M (RC)", "M (RLC)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 5,
         "Dri": 55,
@@ -582,7 +582,7 @@
         "M (RL)",
         "M (RLC)"
       ],
-      "ratings": {
+      "weightings": {
         "Cor": 30,
         "Cro": 65,
         "Dri": 55,
@@ -624,7 +624,7 @@
     },
     "amc": {
       "positions": ["AM (C)", "AM (LC)", "AM (RC)", "AM (RLC)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 5,
         "Dri": 65,
@@ -666,7 +666,7 @@
     },
     "st": {
       "positions": ["ST (C)"],
-      "ratings": {
+      "weightings": {
         "Cor": 5,
         "Cro": 5,
         "Dri": 75,

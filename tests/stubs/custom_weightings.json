@@ -2,7 +2,7 @@
   "olis_weightings": {
     "gk": {
       "positions": ["GK"],
-      "ratings": {
+      "weightings": {
         "Aer": 60,
         "Cmd": 40,
         "Com": 30,
