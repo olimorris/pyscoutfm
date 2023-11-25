@@ -13,7 +13,7 @@ Trying to install Python for the first time can feel messy but thankfully it's a
 pip install pyscoutfm
 ```
 
-4. If you run `pyscoutfm.exe -V` and receive an error, then you need to add python to your [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) environment variable
+4. If you run `pyscoutfm -V` and receive an error, then you need to add python to your [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) environment variable
 5. Open up the start menu and type `enviro` and you should see the following match:
 
 <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/c2f8e5a6-0b75-4dd8-af74-bc5d372f0ffb">
@@ -35,7 +35,7 @@ pip install pyscoutfm
 <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/6d4fa4d8-0897-4d67-bea0-5d6b06bc41ef">
 
 10. Now `OK` out of all of the boxes
-11. Restart the Command Prompt
+11. Close and re-open the Command Prompt
 12. And type `pyscoutfm -V` to see:
 
 <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/47046274-a294-45b3-8961-aee2a24a7107">
