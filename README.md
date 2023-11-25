@@ -17,12 +17,12 @@
 
 ## :sparkles: Features
 
-:mag: Generate scout reports from your squad and scouting screens within FM
-:bar_chart: Uses a customisable rating system to score players out of 100
-:wrench: Tweak or create your own weightings to evaluate players
-:file_folder: Exports the scout report into a pretty HTML file
-:mag_right: Easily search and sort the players in the scout report
-:rocket: Easily export from the game using the [provided views](src/pyscoutfm/extras)
+- :mag: Generate scout reports from your squad and scouting screens within FM
+- :bar_chart: Uses a customisable rating system to score players out of 100
+- :wrench: Tweak or create your own weightings to evaluate players
+- :file_folder: Exports the scout report into a pretty HTML file
+- :mag_right: Easily search and sort the players in the scout report
+- :rocket: Easily export from the game using the [provided views](src/pyscoutfm/extras)
 
 ## :zap: Requirements
 
