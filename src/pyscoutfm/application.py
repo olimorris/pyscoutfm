@@ -116,8 +116,9 @@ def validate_path(path, path_type):
         return
     expanded_path = os.path.expanduser(path)
     if not os.path.exists(expanded_path):
-        print(f"Error: The {path_type} path '{path}' does not exist")
-        typer.Exit(1)
+        print(
+            f"[bold yellow]Warning:[/bold yellow] The {path_type} path '{path}' does not exist"
+        )
     return expanded_path
 
 
