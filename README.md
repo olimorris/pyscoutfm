@@ -12,18 +12,17 @@
 </p>
 
 <p align="center">
-    Use the power of Python to traverse the cosmos and scout for players within the <a href="https://www.footballmanager.com">Football Manager</a> game<br><br>
-    Inspired by the fantastic work of <a href="https://www.youtube.com/@squirrel_plays_fof4318">@squirrel_plays</a> and the contributors on <a href="https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position/">this</a> thread at <a href="https://fm-arena.com">FM-Arena</a>
+    Use the power of Python to traverse the cosmos and scout for players within the <a href="https://www.footballmanager.com">Football Manager</a> game<br><br>Inspired by the fantastic work of <a href="https://www.youtube.com/@squirrel_plays_fof4318">@squirrel_plays</a> and the contributors on <a href="https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position/">this</a> thread at <a href="https://fm-arena.com">FM-Arena</a>
 </p>
 
 ## :sparkles: Features
 
-- Generate scout reports from your squad and scouting screens within FM
-- Uses a customisable rating system to score players out of 100
-- Tweak or create your own ratings to evaluate players
-- Exports the scout report into a pretty HTML file
-- Easily search and sort the players in the scout report
-- Easily export from the game using the [provided views](src/PyScoutFM/extras)
+:mag: Generate scout reports from your squad and scouting screens within FM
+:bar_chart: Uses a customisable rating system to score players out of 100
+:wrench: Tweak or create your own weightings to evaluate players
+:file_folder: Exports the scout report into a pretty HTML file
+:mag_right: Easily search and sort the players in the scout report
+:rocket: Easily export from the game using the [provided views](src/pyscoutfm/extras)
 
 ## :zap: Requirements
 
@@ -89,7 +88,7 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
 
 ### Generating the Scout Report
 
-By default, the tool comes with a default [config](src/PyScoutFM/config/config.json) file along with some sensible [ratings](src/PyScoutFM/config/ratings.json). We will use those but tweak the `import-path` option to match the location from step 5:
+By default, the tool comes with a default [config](src/pyscoutfm/config/config.json) file along with some sensible [attribute weightings](src/pyscoutfm/config/weightings.json). We will use those but tweak the `import-path` option to match the location from step 5:
 
 6. In your terminal application run the command:
 
@@ -101,14 +100,22 @@ Where `MY_LOCATION` is the path from step 5.
 
 > **Note**: The tool is smart enough to only load the most recent _html_ file in the directory you specify
 
-7. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional rankings which have been calculated with the tool:
+7. You should see a _Success_ message confirming the generation of the report.
+
+### Using the Scout Report
+
+So you have a Scout Report, now what?
+
+8. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional ratings which have been calculated with the tool:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/d6e1c53c-dfbd-4645-9314-04590d09ef71" alt="The scout
     report" />
 </div>
 
-8. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
+9. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
+
+10. Each of the rating columns represents a score out of 100. That is, how well suited a player is to a particular position based on the attribute weightings defined in the default [weightings file](src/pyscoutfm/config/weightings.json)
 
 ## :rocket: Commands
 
@@ -148,8 +155,8 @@ The available options are:
     --config-path         TEXT  The path to the config file to use
     --import-path         TEXT  The path to the directory to import from [default: None]
     --export-path         TEXT  The path to the directory to export to [default: None]
-    --ratings-path        TEXT  The path to the ratings file to use [default: None]
-    --ratings-set         TEXT  The ratings set to use [default: None]
+    --weightings-path     TEXT  The path to the weightings file to use [default: None]
+    --weightings-set      TEXT  The weightings set to use [default: None]
     --help                      Show this message and exit.
 
 ## :hammer: Advanced usage
