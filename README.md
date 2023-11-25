@@ -51,9 +51,9 @@ pyscoutfm -v
 
 ## :video_game: Generating a Scout Report
 
-To it simple, let's quickly generate a scouting report from the command line.
+Let's get down to business and show you how quickly you can generate a scouting report for your current squad from the command line.
 
-1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a command:
+1. Firstly, and for reference, to see a list of the commands and options available to you at any step of the way with PyScoutFM, append `--help` to a [command](#rocket-commands):
 
 ```
 pyscoutfm generate --help
@@ -119,6 +119,16 @@ So you have a Scout Report, now what?
 9. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
 
 10. Each of the rating columns represents a score out of 100. That is, how well suited a player is to a particular position based on the attribute weightings defined in the default [weightings file](src/pyscoutfm/config/weightings.json)
+
+### Hints and Tips
+
+You may find yourself tweaking your search results in Football Manager and re-generating scouting reports often. Below are some tips for doing this optimally:
+
+1. Always export your Football Manager data to the same location. The tool is smart enough to be able to load the most recent HTML file in a directory if you don't pass it an `import_path` parameter.
+
+2. You don't need to re-type your command in the Command Prompt/Terminal. Instead use the <kbd>Up</kbd> key to scroll through historical commands.
+
+3. Once the report has been generated, just refresh the webpage in the Browser. The tool will always overwrite the `latest.html`. Don't worry though...it also saves a datetime stamped copy of the report as well.
 
 ## :rocket: Commands
 
