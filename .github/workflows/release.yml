@@ -25,6 +25,11 @@ jobs:
         pip install .
     - name: Build package
       run: python -m build
+    - name: Upload dist to artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: dist/
 
   pypi-publish:
     name: Deploy to PyPI
@@ -36,6 +41,11 @@ jobs:
     permissions:
       id-token: write
     steps:
+    - name: Download dist from artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
