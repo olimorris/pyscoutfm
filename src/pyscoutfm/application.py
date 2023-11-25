@@ -92,12 +92,20 @@ def generate(
     # Load the weightings and validate the weightings set
     weightings = importer.load_weightings(c["weightings_path"], user_weighting)
     if weightings_set and weightings_set not in weightings:
-        print(f"The weightings set '{weightings_set}' does not exist")
+        print(
+            f"[bold red]Error:[/bold red] The weightings set '{weightings_set}' does not exist"
+        )
         raise typer.Exit(1)
     c["weightings_set"] = weightings_set or list(weightings.keys())[0]
 
     # Processing
     input_file = importer.find_latest_file(c["import_path"], "*.html")
+    if not input_file:
+        print(
+            f"[bold red]Error:[/bold red] Could not find a HTML file to import from '{c['import_path']}'"
+        )
+        raise typer.Exit(1)
+
     data = Data(input_file, importer.config)
     data.pre_processing_fixes(weightings)
     process_player_ratings(data, weightings, c["weightings_set"])
