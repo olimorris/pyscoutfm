@@ -1,4 +1,4 @@
-name: Build and deploy Python package
+name: Build and deploy to PyPi
 
 on:
   release:
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build:
-    name: Build and deploy Python package
+    name: Build Python package
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +22,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install build
+        pip install .
     - name: Build package
       run: python -m build
 
   pypi-publish:
-    name: Deploy release to PyPI
+    name: Deploy to PyPI
     needs: build
     runs-on: ubuntu-latest
     environment:
