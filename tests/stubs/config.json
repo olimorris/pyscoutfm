@@ -1,0 +1,20 @@
+{
+  "import_path": "tests/stubs/inputs",
+  "export_path": "tests/stubs/outputs",
+  "weightings_path": "weightings.json",
+  "weightings_set": "ykykyk_balanced",
+  "filter_values_below": 45,
+  "paginate": 30,
+  "output_columns": [
+    "Name",
+    "Age",
+    "Club",
+    "Transfer Value",
+    "Wage",
+    "1st Nat",
+    "Position",
+    "Personality",
+    "Left Foot",
+    "Right Foot"
+  ]
+}

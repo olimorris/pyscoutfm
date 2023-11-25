@@ -1,0 +1,53 @@
+{
+  "olis_weightings": {
+    "gk": {
+      "positions": ["GK"],
+      "ratings": {
+        "Aer": 60,
+        "Cmd": 40,
+        "Com": 30,
+        "Ecc": 20,
+        "Fir": 30,
+        "Han": 50,
+        "Kic": 35,
+        "1v1": 45,
+        "Pas": 45,
+        "Pun": 0,
+        "Ref": 80,
+        "TRO": 40,
+        "Thr": 30,
+        "Agg": 40,
+        "Ant": 40,
+        "Bra": 30,
+        "Cmp": 40,
+        "Cnt": 65,
+        "Dec": 50,
+        "Det": 20,
+        "Fla": 20,
+        "Ldr": 10,
+        "OtB": 0,
+        "Pos": 40,
+        "Tea": 10,
+        "Vis": 40,
+        "Wor": 10,
+        "Acc": 70,
+        "Agi": 100,
+        "Bal": 20,
+        "Jum": 45,
+        "Nat": 10,
+        "Pac": 50,
+        "Sta": 10,
+        "Str": 70,
+        "Feet": 10
+      }
+    }
+  },
+  "feet": {
+    "Very Strong": 10,
+    "Strong": 8,
+    "Fairly Strong": 6,
+    "Reasonable": 4,
+    "Weak": 2,
+    "Very Weak": 0
+  }
+}

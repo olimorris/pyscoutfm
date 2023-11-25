@@ -1,3 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+
 .ipynb_checkpoints/
+dist/
 input/**/*
 output/**/*
+tests/stubs/outputs/
+todo.md
