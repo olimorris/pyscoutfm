@@ -104,7 +104,7 @@ def generate(
     output = data.post_processing_fixes(weightings)
 
     # Generate output
-    html = Formatter(output).to_html()
+    html = Formatter(output, c).to_html()
     Generator.output(html, c["export_path"])
     print(
         f"[bold green]Success:[/bold green] Your scouting report has been generated to '{c['export_path']}'"

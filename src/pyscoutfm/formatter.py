@@ -3,8 +3,9 @@ class Formatter:
     Format a dataframe
     """
 
-    def __init__(self, df):
+    def __init__(self, df, config):
         self.df = df
+        self.config = config
 
     def to_html(self):
         table = self.df.to_html(
@@ -36,7 +37,7 @@ class Formatter:
                 <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
                 <script type="text/javascript">
                     new DataTable('#fm_data', {{
-                        pageLength: 25
+                        pageLength: {self.config['paginate']}
                     }});
                 </script>
             </body>
