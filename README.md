@@ -5,10 +5,10 @@
 <h1 align="center">PyScoutFM</h1>
 
 <p align="center">
-<a href="https://github.com/olimorris/pyscoutfm/stargazers"><img src="https://img.shields.io/github/stars/olimorris/pyscoutfm?color=c678dd&logoColor=e06c75&style=for-the-badge"></a>
-<a href="https://github.com/olimorris/pyscoutfm/issues"><img src="https://img.shields.io/github/issues/olimorris/pyscoutfm?color=%23d19a66&style=for-the-badge"></a>
-<a href="https://github.com/olimorris/pyscoutfm/blob/main/LICENSE"><img src="https://img.shields.io/github/license/olimorris/pyscoutfm?color=%2361afef&style=for-the-badge"></a>
-<a href="https://github.com/olimorris/pyscoutfm/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/olimorris/pyscoutfm/test.yml?branch=main&label=tests&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/PyScoutFM/stargazers"><img src="https://img.shields.io/github/stars/olimorris/PyScoutFM?color=c678dd&logoColor=e06c75&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/PyScoutFM/issues"><img src="https://img.shields.io/github/issues/olimorris/PyScoutFM?color=%23d19a66&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/PyScoutFM/blob/main/LICENSE"><img src="https://img.shields.io/github/license/olimorris/PyScoutFM?color=%2361afef&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/PyScoutFM/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/olimorris/PyScoutFM/test.yml?branch=main&label=tests&style=for-the-badge"></a>
 </p>
 
 <p align="center">
