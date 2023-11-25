@@ -64,10 +64,12 @@ def generate(
     export_path: Optional[str] = typer.Option(
         None, help="The path to the directory to export to"
     ),
-    ratings_path: Optional[str] = typer.Option(
-        None, help="The path to the ratings file to use"
+    weightings_path: Optional[str] = typer.Option(
+        None, help="The path to the weightings file to use"
     ),
-    ratings_set: Optional[str] = typer.Option(None, help="The ratings set to use"),
+    weightings_set: Optional[str] = typer.Option(
+        None, help="The weightings set to use"
+    ),
 ):
     """
     Generate a scouting report from the data exported from FM
@@ -80,24 +82,26 @@ def generate(
     # Validate the paths
     c["import_path"] = validate_path(import_path, "import") or c["import_path"]
     c["export_path"] = validate_path(export_path, "export") or c["export_path"]
-    user_rating = False
-    if ratings_path:
-        c["ratings_path"] = validate_path(ratings_path, "ratings") or c["ratings_path"]
-        user_rating = True
+    user_weighting = False
+    if weightings_path:
+        c["weightings_path"] = (
+            validate_path(weightings_path, "weightings") or c["weightings_path"]
+        )
+        user_weighting = True
 
-    # Load the ratings and validate the ratings set
-    ratings = importer.load_ratings(c["ratings_path"], user_rating)
-    if ratings_set and ratings_set not in ratings:
-        print(f"The ratings set '{ratings_set}' does not exist")
+    # Load the weightings and validate the weightings set
+    weightings = importer.load_weightings(c["weightings_path"], user_weighting)
+    if weightings_set and weightings_set not in weightings:
+        print(f"The weightings set '{weightings_set}' does not exist")
         raise typer.Exit(1)
-    c["ratings_set"] = ratings_set or list(ratings.keys())[0]
+    c["weightings_set"] = weightings_set or list(weightings.keys())[0]
 
     # Processing
     input_file = importer.find_latest_file(c["import_path"], "*.html")
     data = Data(input_file, importer.config)
-    data.pre_processing_fixes(ratings)
-    process_player_ratings(data, ratings, c["ratings_set"])
-    output = data.post_processing_fixes(ratings)
+    data.pre_processing_fixes(weightings)
+    process_player_ratings(data, weightings, c["weightings_set"])
+    output = data.post_processing_fixes(weightings)
 
     # Generate output
     html = Formatter(output).to_html()
@@ -117,9 +121,9 @@ def validate_path(path, path_type):
     return expanded_path
 
 
-def process_player_ratings(data, ratings, ratings_set):
-    for key, ratings_data in ratings[ratings_set].items():
-        data.export[key.upper()] = data.calculator(key, ratings_data)
+def process_player_ratings(data, weightings, weightings_set):
+    for key, weightings_data in weightings[weightings_set].items():
+        data.export[key.upper()] = data.calculator(key, weightings_data)
 
 
 def version_callback(value: bool):

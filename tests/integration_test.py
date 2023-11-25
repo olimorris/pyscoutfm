@@ -31,17 +31,17 @@ def test_generate():
     clean_up("tests/stubs/outputs/")
 
 
-def test_generate_custom_ratings():
+def test_generate_custom_weightings():
     result = runner.invoke(
         app,
         [
             "generate",
             "--config-path",
             "tests/stubs/config.json",
-            "--ratings-path",
-            "tests/stubs/custom_ratings.json",
-            "--ratings-set",
-            "olis_ratings",
+            "--weightings-path",
+            "tests/stubs/custom_weightings.json",
+            "--weightings-set",
+            "olis_weightings",
         ],
     )
     assert result.exit_code == 0
@@ -56,10 +56,10 @@ def test_wrong_rating_set_fails():
             "generate",
             "--config-path",
             "tests/stubs/config.json",
-            "--ratings-path",
-            "tests/stubs/custom_ratings.json",
-            "--ratings-set",
-            "ykykyk_balanced",  # This set does not exist within the custom ratings file
+            "--weightings-path",
+            "tests/stubs/custom_weightings.json",
+            "--weightings-set",
+            "ykykyk_balanced",  # This set does not exist within the custom weightings file
         ],
     )
     assert result.exit_code == 1

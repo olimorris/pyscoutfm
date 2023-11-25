@@ -10,7 +10,7 @@ from pyscoutfm.importer import Importer
 
 @pytest.fixture
 def sample_config():
-    return {"ratings_path": "~/ratings.json"}
+    return {"weightings_path": "~/weightings.json"}
 
 
 @pytest.fixture
