@@ -1,6 +1,8 @@
-name: test
+name: ci-cd
 
-on: pull_request
+on:
+  push:
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -27,3 +29,17 @@ jobs:
       run: |
         pytest -v
 
+  pypi-publish:
+    name: Upload release to PyPI
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pyscoutfm
+    permissions:
+      id-token: write
+    steps:
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        verbose: true
