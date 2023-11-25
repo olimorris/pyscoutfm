@@ -15,22 +15,22 @@
     Use the power of Python to traverse the cosmos and scout for players within the <a href="https://www.footballmanager.com">Football Manager</a> game<br><br>Inspired by the fantastic work of <a href="https://www.youtube.com/@squirrel_plays_fof4318">@squirrel_plays</a> and the contributors on <a href="https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position/">this</a> thread at <a href="https://fm-arena.com">FM-Arena</a>
 </p>
 
-## :sparkles: Features
+## ✨ Features
 
-- :mag: Generate scout reports from your squad and scouting screens within FM
-- :bar_chart: Uses a customisable rating system to score players out of 100
-- :wrench: Tweak or create your own weightings to evaluate players
-- :file_folder: Exports the scout report into a pretty HTML file
-- :mag_right: Easily search and sort the players in the scout report
-- :rocket: Easily export from the game using the [provided views](src/pyscoutfm/extras)
+- 🔍 Generate scout reports from your squad and scouting screens within FM
+- 📊 Uses a customisable rating system to score players out of 100
+- 🔧 Tweak or create your own weightings to evaluate players
+- 📂 Exports the scout report into a pretty HTML file
+- 🔭 Easily search and sort the players in the scout report
+- 🚀 Easily export from the game using the [provided views](src/pyscoutfm/extras)
 
-## :zap: Requirements
+## ⚡ Requirements
 
 - Python >= 3.10
 - Football Manager (any version that supports the supplied views)
 - Windows/MacOS
 
-## :package: Installation
+## 📦 Installation
 
 1. Check if you have Python installed by opening up a Command Prompt/Terminal and typing `python -V`
 2. Install [Python](https://www.python.org/downloads/) if you don't.
@@ -46,10 +46,10 @@ pip install pyscoutfm
 4. To verify the installation, run:
 
 ```
-pyscoutfm -v
+pyscoutfm -V
 ```
 
-## :video_game: Generating a Scout Report
+## 🎮 Generating a Scout Report
 
 Let's get down to business and show you how quickly you can generate a scouting report for your current squad from the command line.
 
@@ -130,7 +130,7 @@ You may find yourself tweaking your search results in Football Manager and re-ge
 
 3. Once the report has been generated, just refresh the webpage in the Browser. The tool will always overwrite the `latest.html`. Don't worry though...it also saves a datetime stamped copy of the report as well.
 
-## :rocket: Commands
+## 🚀 Commands
 
 To get started, run:
 
@@ -172,10 +172,10 @@ The available options are:
     --weightings-set      TEXT  The weightings set to use [default: None]
     --help                      Show this message and exit.
 
-## :hammer: Advanced usage
+## 🔨 Advanced usage
 
 To be updated
 
-## :telescope: How does it work?
+## 🔭 How does it work?
 
 To be updated
