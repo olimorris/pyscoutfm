@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/c79dfc9b-efdc-4b23-bd1d-d485a2f715f0" height="300">
+    <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/c79dfc9b-efdc-4b23-bd1d-d485a2f715f0">
 </p>
 
 <h1 align="center">PyScoutFM</h1>
