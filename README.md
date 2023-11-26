@@ -95,7 +95,7 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
 
 > Where `MY_LOCATION` is the path you wish to copy the views to
 
-3. Download the views (if on Cloud and as per this [screenshot](https://github.com/olimorris/PyScoutFM/assets/9512444/298b3427-fb0f-4444-b561-267bf65c7440)) then import them into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
+3. Download the views (if on Cloud and as per this [screenshot](https://github.com/olimorris/PyScoutFM/assets/9512444/676239cd-ed7b-4ce7-af27-f049a57ab578)) then import them into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/bf1a1711-6d40-4c93-b77f-06a8aba216dc" alt="importing a view" />
