@@ -6,5 +6,14 @@ __pycache__/
 dist/
 input/**/*
 output/**/*
+OUTPUTS/
 tests/stubs/outputs/
 todo.md
+
+# Ignore fmf files in the root directory
+*.fmf
+!*/**/*.fmf
+
+# Do the same with HTML files
+*.html
+!*/**/*.html
