@@ -121,7 +121,7 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
 
 ### Generating the Scout Report
 
-By default, the tool comes with a default [config](src/pyscoutfm/config/config.json) file along with some sensible [attribute weightings](src/pyscoutfm/config/weightings.json).
+The tool comes with a default [config](src/pyscoutfm/config/config.json) file along with some sensible [attribute weightings](src/pyscoutfm/config/weightings.json) (which were the result of some heavy Machine Learning analysis).
 
 7. In your terminal application run the command:
 
@@ -192,7 +192,7 @@ The available options are:
     copy-views-to       Copy the included views to a specified path before importing into FM
     generate            Generate a scouting report from the data exported from FM
 
-### Copy Views Command
+### Copy Views
 
     Usage: pyscoutfm copy-views-to [OPTIONS]
 
@@ -202,7 +202,7 @@ The available options are:
     --path  -p      TEXT  The paths to copy the views to
     --help                Show this message and exit.
 
-### Generate Command
+### Generate
 
     Usage: pyscoutfm generate [OPTIONS]
 
@@ -223,3 +223,31 @@ To be updated
 ## 🔭 How does it work?
 
 To be updated
+
+## ⁉️ FAQs
+
+**Q. Why should I use PyScoutFM over Genie Scout?**
+A. I think it comes down to your workflow and how you play the game. I am on a Mac mostly which doesn't help when it comes to using Genie Scout. I also like to use custom weightings which are easier to update with PyScoutFM. Finally, I _think_ the ratings that come out of PyScoutFM are more accurate than Genie Scout's defaults.
+
+**Q. How does PyScoutFM differ to Squirrel's web app and which is better?**
+A. Firstly, huge props to Squirrel for starting this _movement_ with Python and Football Manager. I disagreed with how they've setup their weighting/rating system in their tool and valued the work and analysis that had taken place over on [FM-Arena's](https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position) site. As such, I think that PyScoutFM produces more accurate outputs...and even if you don't think so, you can very quickly change the [weightings](src/pyscoutfm/config/weightings.json) to your liking.
+
+I've put together a comparison table between the two apps:
+
+| Feature | PyScoutFM | Squirrel's |
+| --- | :---: | :---: |
+| Online web application | ❌ | ✅ |
+| Import HTML from Football Manager | ✅ | ✅ |
+| HTML output | ✅ | ✅ |
+| Number of player roles in the output file | Unlimited | 8 |
+| Ratings by role | ❌ | ✅ |
+| Ratings by position | ✅ | ❌ |
+| Customisable weightings | ✅ | ❌ |
+| Evidence for weightings* | [Here](https://fm-arena.com/find-comment/11228/) | [Here](https://youtu.be/DvV9Aigngi8?t=377) |
+| Customisable player positions | ✅ | ❌ |
+| Customisable attribute groupings** | ✅ | ❌ |
+| Customisable columns in the output file | ✅ | ❌ |
+
+\* For PyScoutFM this is a little convoluted but the work done by [Mark](https://fm-arena.com/profile/912-mark/) to produce a balanced filter for Genie Scout was translated into the [default weightings](src/pyscoutfm/config/weightings.json) file.
+
+\** I like to create a [club DNA](https://www.youtube.com/watch?v=O-F5qI0fI3A) for my saves and this feature allows me to group and weight particular attributes together to produce a DNA rating.
