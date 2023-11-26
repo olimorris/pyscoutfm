@@ -1,6 +1,6 @@
 {
-  "import_path": "~/Documents",
-  "export_path": "~/Documents/PyScoutFM",
+  "import_path": ".",
+  "export_path": ".",
   "weightings_path": "weightings.json",
   "weightings_set": "ykykyk_balanced",
   "filter_values_below": 45,

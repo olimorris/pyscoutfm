@@ -29,7 +29,7 @@ def copy_views_to(
             "-p",
             help="The paths to copy the views to",
         ),
-    ] = "",
+    ] = ".",
 ):
     """
     Copy the included views to a specified path before importing into FM
