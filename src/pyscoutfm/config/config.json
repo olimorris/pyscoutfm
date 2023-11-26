@@ -1,6 +1,6 @@
 {
   "import_path": ".",
-  "export_path": ".",
+  "export_path": "./OUTPUTS",
   "weightings_path": "weightings.json",
   "weightings_set": "ykykyk_balanced",
   "filter_values_below": 45,
