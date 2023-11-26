@@ -32,6 +32,24 @@
 
 ## 📦 Installation
 
+### Cloud (easiest)
+
+1. On this page, click `Code` > `Create codespace on main`:
+
+<img src="https://github.com/olimorris/PyScoutFM/assets/9512444/22df9106-3c27-409a-93f5-d09bc23979ca">
+
+2. Click on `Bash` in the terminal of the next window that opens:
+
+<img src="https://github.com/olimorris/PyScoutFM/assets/9512444/e50548bc-975e-4988-88c1-8541f1641b22">
+
+3. Then run `pip install -e .`
+
+<img src="https://github.com/olimorris/PyScoutFM/assets/9512444/46511647-95c3-46ef-a874-c14f5ac874e1">
+
+4. Now running `pyscoutfm -V` will output the current version of the tool indicating the install was successful!
+
+### Locally (more convenient)
+
 1. Check if you have Python installed by opening up a Command Prompt/Terminal and typing `python -V`
 2. Install [Python](https://www.python.org/downloads/) if you don't.
 
@@ -65,13 +83,19 @@ The tool requires an extract of data from Football Manager. To make this easy, w
 
 2. To save you hunting for them, run:
 
+Cloud:
+```
+pyscoutfm copy-views-to
+```
+
+or Local:
 ```
 pyscoutfm copy-views-to --path="MY_LOCATION"
 ```
 
 > Where `MY_LOCATION` is the path you wish to copy the views to
 
-3. Import these views into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
+3. Download the views (if on Cloud) then import them into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/bf1a1711-6d40-4c93-b77f-06a8aba216dc" alt="importing a view" />
@@ -89,11 +113,25 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/87282629-35b7-4fad-a5e0-360eef3d12a3" alt="saving the print file" />
 </div>
 
+6. _(Optional)_ If you're using the Cloud install, make sure you upload the exported HTML file to the Codespace:
+
+<div align="center">
+    <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/c848f171-02f1-414b-9fdd-a986bd2c7567">
+</div>
+
 ### Generating the Scout Report
 
-By default, the tool comes with a default [config](src/pyscoutfm/config/config.json) file along with some sensible [attribute weightings](src/pyscoutfm/config/weightings.json). We will use those but tweak the `import-path` option to match the location from step 5:
+By default, the tool comes with a default [config](src/pyscoutfm/config/config.json) file along with some sensible [attribute weightings](src/pyscoutfm/config/weightings.json).
 
-6. In your terminal application run the command:
+7. In your terminal application run the command:
+
+Cloud:
+
+```
+pyscoutfm generate
+```
+
+or Local:
 
 ```
 pyscoutfm generate --import-path=MY_LOCATION --export-path=MY_LOCATION
@@ -103,22 +141,28 @@ Where `MY_LOCATION` is the path from step 5.
 
 > **Note**: The tool is smart enough to only load the most recent _html_ file in the directory you specify
 
-7. You should see a _Success_ message confirming the generation of the report.
+8. You should see a _Success_ message confirming the generation of the report.
 
 ### Using the Scout Report
 
 So you have a Scout Report, now what?
 
-8. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional ratings which have been calculated with the tool:
+9. _(Optional)_ If you're on the Cloud, download the `latest.html` file from the `OUTPUTS` directory:
+
+<div align="center">
+  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/cf84c98a-536d-41da-8033-9e9ef2890476" alt="Download" />
+</div>
+
+10. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional ratings which have been calculated with the tool:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/d6e1c53c-dfbd-4645-9314-04590d09ef71" alt="The scout
     report" />
 </div>
 
-9. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
+11. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
 
-10. Each of the rating columns represents a score out of 100. That is, how well suited a player is to a particular position based on the attribute weightings defined in the default [weightings file](src/pyscoutfm/config/weightings.json)
+12. Each of the rating columns represents a score out of 100. That is, how well suited a player is to a particular position based on the attribute weightings defined in the default [weightings file](src/pyscoutfm/config/weightings.json)
 
 ### Hints and Tips
 
