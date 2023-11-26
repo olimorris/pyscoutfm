@@ -95,7 +95,7 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
 
 > Where `MY_LOCATION` is the path you wish to copy the views to
 
-3. Download the views (if on Cloud) then import them into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
+3. Download the views (if on Cloud and as per this [screenshot](https://github.com/olimorris/PyScoutFM/assets/9512444/298b3427-fb0f-4444-b561-267bf65c7440)) then import them into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/bf1a1711-6d40-4c93-b77f-06a8aba216dc" alt="importing a view" />
@@ -239,15 +239,18 @@ I've put together a comparison table between the two apps:
 | Online web application | ❌ | ✅ |
 | Import HTML from Football Manager | ✅ | ✅ |
 | HTML output | ✅ | ✅ |
-| Number of player roles in the output file | Unlimited | 8 |
-| Ratings by role | ❌ | ✅ |
+| Number of player roles/positions in the output file | Unlimited | 8 |
+| Ratings by role* | ❌ | ✅ |
 | Ratings by position | ✅ | ❌ |
+| Ratings are a score out of... | 100 | 20 |
 | Customisable weightings | ✅ | ❌ |
-| Evidence for weightings* | [Here](https://fm-arena.com/find-comment/11228/) | [Here](https://youtu.be/DvV9Aigngi8?t=377) |
+| Evidence for weightings** | [Here](https://fm-arena.com/find-comment/11228/) | [Here](https://youtu.be/DvV9Aigngi8?t=377) |
 | Customisable player positions | ✅ | ❌ |
-| Customisable attribute groupings** | ✅ | ❌ |
+| Customisable attribute groupings*** | ✅ | ❌ |
 | Customisable columns in the output file | ✅ | ❌ |
 
-\* For PyScoutFM this is a little convoluted but the work done by [Mark](https://fm-arena.com/profile/912-mark/) to produce a balanced filter for Genie Scout was translated into the [default weightings](src/pyscoutfm/config/weightings.json) file.
+\* This isn't in PyScoutFM by default but can be added in manually.
 
-\** I like to create a [club DNA](https://www.youtube.com/watch?v=O-F5qI0fI3A) for my saves and this feature allows me to group and weight particular attributes together to produce a DNA rating.
+\** For PyScoutFM this is a little convoluted but the work done by [Mark](https://fm-arena.com/profile/912-mark/) to produce a balanced filter for Genie Scout was translated into the [default weightings](src/pyscoutfm/config/weightings.json) file.
+
+\*** I like to create a [club DNA](https://www.youtube.com/watch?v=O-F5qI0fI3A) for my saves and this feature allows me to group and weight particular attributes together to produce a DNA rating.
