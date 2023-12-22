@@ -32,24 +32,6 @@
 
 ## 📦 Installation
 
-### Cloud (easiest)
-
-1. On this page, click `Code` > `Create codespace on main`:
-
-<img src="https://github.com/olimorris/PyScoutFM/assets/9512444/22df9106-3c27-409a-93f5-d09bc23979ca">
-
-2. Click on `Bash` in the terminal of the next window that opens:
-
-<img src="https://github.com/olimorris/PyScoutFM/assets/9512444/e50548bc-975e-4988-88c1-8541f1641b22">
-
-3. Then run `pip install -e .`
-
-<img src="https://github.com/olimorris/PyScoutFM/assets/9512444/46511647-95c3-46ef-a874-c14f5ac874e1">
-
-4. Now running `pyscoutfm -V` will output the current version of the tool indicating the install was successful!
-
-### Locally (more convenient)
-
 1. Check if you have Python installed by opening up a Command Prompt/Terminal and typing `python -V`
 2. Install [Python](https://www.python.org/downloads/) if you don't.
 
@@ -83,19 +65,13 @@ The tool requires an extract of data from Football Manager. To make this easy, w
 
 2. To save you hunting for them, run:
 
-Cloud:
-```
-pyscoutfm copy-views-to
-```
-
-or Local:
 ```
 pyscoutfm copy-views-to --path="MY_LOCATION"
 ```
 
 > Where `MY_LOCATION` is the path you wish to copy the views to
 
-3. Download the views (if on Cloud and as per this [screenshot](https://github.com/olimorris/PyScoutFM/assets/9512444/676239cd-ed7b-4ce7-af27-f049a57ab578)) then import them into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
+3. Import the views into FM; we'll start with the main squad screen of the team you're managing but note that you could go into your scouting screen as well:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/bf1a1711-6d40-4c93-b77f-06a8aba216dc" alt="importing a view" />
@@ -113,25 +89,11 @@ pyscoutfm copy-views-to --path="MY_LOCATION"
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/87282629-35b7-4fad-a5e0-360eef3d12a3" alt="saving the print file" />
 </div>
 
-6. _(Optional)_ If you're using the Cloud install, make sure you upload the exported HTML file to the Codespace:
-
-<div align="center">
-    <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/c848f171-02f1-414b-9fdd-a986bd2c7567">
-</div>
-
 ### Generating the Scout Report
 
 The tool comes with a default [config](src/pyscoutfm/config/config.json) file along with some sensible [attribute weightings](src/pyscoutfm/config/weightings.json) (which were the result of some heavy Machine Learning analysis).
 
-7. In your terminal application run the command:
-
-Cloud:
-
-```
-pyscoutfm generate
-```
-
-or Local:
+6. In your terminal application run the command:
 
 ```
 pyscoutfm generate --import-path=MY_LOCATION --export-path=MY_LOCATION
@@ -141,28 +103,22 @@ Where `MY_LOCATION` is the path from step 5.
 
 > **Note**: The tool is smart enough to only load the most recent _html_ file in the directory you specify
 
-8. You should see a _Success_ message confirming the generation of the report.
+7. You should see a _Success_ message confirming the generation of the report.
 
 ### Using the Scout Report
 
 So you have a Scout Report, now what?
 
-9. _(Optional)_ If you're on the Cloud, download the `latest.html` file from the `OUTPUTS` directory:
-
-<div align="center">
-  <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/cf84c98a-536d-41da-8033-9e9ef2890476" alt="Download" />
-</div>
-
-10. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional ratings which have been calculated with the tool:
+8. Open up `latest.html` in your browser and you should see your players from the squad screen alongside their positional ratings which have been calculated with the tool:
 
 <div align="center">
   <img src="https://github.com/olimorris/PyScoutFM/assets/9512444/d6e1c53c-dfbd-4645-9314-04590d09ef71" alt="The scout
     report" />
 </div>
 
-11. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
+9. Clicking on the arrows next to the column headings allows you to sort by that column. Also, a helpful search box makes it easier to find specific players.
 
-12. Each of the rating columns represents a score out of 100. That is, how well suited a player is to a particular position based on the attribute weightings defined in the default [weightings file](src/pyscoutfm/config/weightings.json)
+10. Each of the rating columns represents a score out of 100. That is, how well suited a player is to a particular position based on the attribute weightings defined in the default [weightings file](src/pyscoutfm/config/weightings.json)
 
 ### Hints and Tips
 
@@ -227,9 +183,11 @@ To be updated
 ## ⁉️ FAQs
 
 **Q. Why should I use PyScoutFM over Genie Scout?**
-A. I think it comes down to your workflow and how you play the game. I am on a Mac mostly which doesn't help when it comes to using Genie Scout. I also like to use custom weightings which are easier to update with PyScoutFM. Finally, I _think_ the ratings that come out of PyScoutFM are more accurate than Genie Scout's defaults.
+
+A. I think it comes down to your workflow and how you play the game. I am on a Mac mostly which doesn't help when it comes to using Genie Scout. I also like to use custom weightings which are easier to update with PyScoutFM and I _think_ the ratings that come out this are more accurate than Genie Scout's defaults.
 
 **Q. How does PyScoutFM differ to Squirrel's web app and which is better?**
+
 A. Firstly, huge props to Squirrel for starting this _movement_ with Python and Football Manager. I disagreed with how they've setup their weighting/rating system in their tool and valued the work and analysis that had taken place over on [FM-Arena's](https://fm-arena.com/thread/1949-fm22-positional-filters-what-are-the-best-attributes-for-each-position) site. As such, I think that PyScoutFM produces more accurate outputs...and even if you don't think so, you can very quickly change the [weightings](src/pyscoutfm/config/weightings.json) to your liking.
 
 I've put together a comparison table between the two apps:
