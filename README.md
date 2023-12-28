@@ -124,11 +124,13 @@ So you have a Scout Report, now what?
 
 You may find yourself tweaking your search results in Football Manager and re-generating scouting reports often. Below are some tips for doing this optimally:
 
-1. Always export your Football Manager data to the same location. The tool is smart enough to be able to load the most recent HTML file in a directory if you don't pass it an `import_path` parameter.
+1. Players that are not fully scouted will not be rated accurately! If you play with attribute masking and they have an attribute of `-` then the tool will convert it to `1`. Also, if they have an attribute range of `7-11`, the tool will use `7`.
 
-2. You don't need to re-type your command in the Command Prompt/Terminal. Instead use the <kbd>Up</kbd> key to scroll through historical commands.
+2. Always export your Football Manager data to the same location. The tool is smart enough to be able to load the most recent HTML file in a directory if you don't pass it an `import_path` parameter.
 
-3. Once the report has been generated, just refresh the webpage in the Browser. The tool will always overwrite the `latest.html`. Don't worry though...it also saves a datetime stamped copy of the report as well.
+3. You don't need to re-type your command in the Command Prompt/Terminal. Instead use the <kbd>Up</kbd> key to scroll through historical commands.
+
+4. Once the report has been generated, just refresh the webpage in the Browser. The tool will always overwrite the `latest.html`. Don't worry though...it also saves a datetime stamped copy of the report as well.
 
 ## 🚀 Commands
 
