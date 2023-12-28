@@ -4,7 +4,10 @@ from datetime import datetime
 
 class Generator:
     @staticmethod
-    def output(data, path):
+    def output(data, path=None):
+        if path is None:
+            return data
+
         path = os.path.expanduser(path)
         filename = str(datetime.now().strftime("%Y%m%d_%H%M%S")) + ".html"
 

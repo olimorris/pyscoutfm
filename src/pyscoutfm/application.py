@@ -108,15 +108,21 @@ def generate(
 
     data = Data(input_file, importer.config)
     data.pre_processing_fixes(weightings)
+
     process_player_ratings(data, weightings, c["weightings_set"])
     output = data.post_processing_fixes(weightings)
 
-    # Generate output
+    # TODO: Group by Teams and positions if a flag is passed
+
     html = Formatter(output, c).to_html()
     Generator.output(html, c["export_path"])
-    print(
+    return print(
         f"[bold green]Success:[/bold green] Your scouting report has been generated to '{c['export_path']}'"
     )
+
+
+def generate_json():
+    return True
 
 
 def validate_path(path, path_type):

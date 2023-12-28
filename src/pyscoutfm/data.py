@@ -76,6 +76,13 @@ class Data:
 
         for attr, scale in att_weightings.items():
             if attr in df.columns:
+                # Some players may not be fully scouted and have a value of '-'
+                df[attr] = df[attr].replace({"-": 1})
+
+                # Some players may not be fully scouted and have a value of '1-7'
+                # We'll be prudent and only include the first value
+                df[attr] = df[attr].astype(str).str.split("-").str[0]
+
                 # Get explicit with types to prevent warnings in Pandas
                 df[attr] = df[attr].astype(float)
 
