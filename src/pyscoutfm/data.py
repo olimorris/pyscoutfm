@@ -14,7 +14,7 @@ class Data:
 
     def pre_processing_fixes(self, weightings):
         # Fix nationality
-        self.export.rename(columns={"Nat": "1st Nat", "Nat.1": "Nat"})
+        self.export.rename(columns={"Nat": "1st Nat", "Nat.1": "Nat"}, inplace=True)
 
         # Calculate feet scores
         self.export["Lft"] = self.export["Left Foot"].map(weightings["feet"])
