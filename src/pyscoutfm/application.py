@@ -89,14 +89,15 @@ def generate(
         )
         user_weighting = True
 
-    # Load the weightings and validate the weightings set
+    # Load the weightings file
     weightings = importer.load_weightings(c["weightings_path"], user_weighting)
+
+    # Get the weightings set
     if weightings_set and weightings_set not in weightings:
         print(
             f"[bold red]Error:[/bold red] The weightings set '{weightings_set}' does not exist"
         )
         raise typer.Exit(1)
-    c["weightings_set"] = weightings_set or list(weightings.keys())[0]
 
     # Processing
     input_file = importer.find_latest_file(c["import_path"], "*.html")
