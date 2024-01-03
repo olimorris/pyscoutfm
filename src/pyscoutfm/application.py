@@ -99,6 +99,9 @@ def generate(
         )
         raise typer.Exit(1)
 
+    if weightings_set:
+        c["weightings_set"] = weightings_set
+
     # Processing
     input_file = importer.find_latest_file(c["import_path"], "*.html")
     if not input_file:
