@@ -49,6 +49,12 @@ pip install pyscoutfm
 pyscoutfm -V
 ```
 
+5. To upgrade, run:
+
+```
+pip install --upgrade pyscoutfm
+```
+
 ## 🎮 Generating a Scout Report
 
 Let's get down to business and show you how quickly you can generate a scouting report for your current squad from the command line.
